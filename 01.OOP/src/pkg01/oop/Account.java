@@ -21,7 +21,7 @@ public class Account {
         this.currency = currency;
     }
     
-    private void takeMoney(int money){
+    public void takeMoney(int money){
         if(this.money>money){
             this.money-=money;
             System.out.println("Your money successfully taken.");
@@ -29,15 +29,15 @@ public class Account {
             System.out.println("You don't have enough money to take.");
         }
     }
-    private void putMoney(int money){
+    public void putMoney(int money){
         this.money += money;
         System.out.println("Your money successfully putted.");
     }
-    private void ShowAccountInfo(){
+    public void ShowAccountInfo(){
         System.out.println("Account Number: " + this.accountNumber + "\nMoney: " + this.money + " " + this.currency);
     }
     
-    private void makeTransaction(Account acc, int money){
+    public void makeTransaction(Account acc, int money){
         if(this.money>money){
             this.takeMoney(money);
             acc.putMoney(money);

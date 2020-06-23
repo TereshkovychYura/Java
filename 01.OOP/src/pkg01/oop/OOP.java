@@ -49,8 +49,25 @@ public class OOP {
       //tom.GetDeveloperInfo();
       
       
+//---------------------------Homework-------------------------
       Account myAcc = new Account("322",2000, "$");
       Account friendAcc = new Account("228",1500, "$");
+      
+      
+      myAcc.ShowAccountInfo();      
+      myAcc.putMoney(500);
+      
+      myAcc.ShowAccountInfo();      
+      myAcc.takeMoney(300);
+      
+      myAcc.ShowAccountInfo();      
+      friendAcc.ShowAccountInfo();
+      
+      myAcc.makeTransaction(friendAcc,1000);
+      
+      myAcc.ShowAccountInfo();      
+      friendAcc.ShowAccountInfo();
+
         
     }
     
