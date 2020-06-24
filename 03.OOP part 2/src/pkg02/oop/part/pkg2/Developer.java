@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package pkg01.oop;
+package pkg02.oop.part.pkg2;
 
 import javax.swing.JOptionPane;
 
@@ -12,20 +12,23 @@ import javax.swing.JOptionPane;
  * @author George
  */
 public class Developer {
-    protected String name;
-    protected String city;
-    protected String position;
-    protected int age;
-    protected int salary;
+    protected String name = "";
+    protected String city = "";
+    protected String position = "";
+    protected int age = 0;
+    protected int salary = 0;
     protected String[] skills = new String[5];
-    private static int counter;
-    public Developer(String name, String city, String position, int age, int salary){
+    private static int counter = 0;
+    public Team team;
+    
+    public Developer(String name, String city, String position, int age, int salary, String TeamName){
         this.name = name;
         this.city = city;
         this.position = position;
         this.age = age;
         this.salary = salary;
-        this.counter ++;
+        this.counter ++; 
+        this.team = new Team(TeamName);
     }
     
     public Developer (){
@@ -38,7 +41,7 @@ public class Developer {
     
     public void GetDeveloperInfo(){
         System.out.println("Name: " + this.name + "\nCity: " + this.city +
-            "\nPosition: " + this.position + "\nAge: " + this.age + "\nSalary: " + this.salary);
+            "\nPosition: " + this.position + "\nAge: " + this.age + "\nSalary: " + this.salary + "\nTeam name: " + this.team.getTeamName());
         if(this.skills[1]!=null){
              System.out.println(this.name + " skills: ");
              
@@ -107,5 +110,13 @@ public class Developer {
     public int getCounter(){
         return this.counter;
     }
-    
+    class Team {
+        private String TeamName;
+        public Team( String TeamName){
+            this.TeamName = TeamName;
+        }
+        public String getTeamName(){
+            return this.TeamName;
+        }
+    }
 }
