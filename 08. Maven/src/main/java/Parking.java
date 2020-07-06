@@ -12,7 +12,6 @@ public class Parking {
         cars.add( new Car(System.currentTimeMillis(),"Toyota" ,2018, "pink",93467));
     }
 
-
     public void ShowAllCars(){
         int count = 1;
         for (Car car:cars) {
@@ -21,12 +20,15 @@ public class Parking {
             count++;
         }
     }
+
     public void AddNewCar(String make, int year, String color, int number){
         this.cars.add(new Car(System.currentTimeMillis(), make, year, color, number));
     }
+
     public void RemoveCar(int index){
         this.cars.remove(index);
     }
+
     public void FindCarByYear(int year){
         for (Car car:cars) {
             if(car.getYear()==year){
@@ -35,6 +37,7 @@ public class Parking {
         }
         System.out.println("");
     }
+
     public void FindCarByMake(String make){
         for (Car car:cars) {
             if(car.getMake().toLowerCase()==make.toLowerCase()){
