@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@include file="templates/header.jsp"%>
 <%@include file="templates/internal-banner.jsp"%>
@@ -9,10 +10,10 @@
             <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
                 <div class="product-categori">
                     <div class="search-product">
-                        <form action="#">
-                            <input class="form-control" placeholder="Search here..." type="text">
+                        <form:form method="post"   action="/productList/Search/" >
+                            <input class="form-control" name="Name" placeholder="Search here..." type="text">
                             <button type="submit"> <i class="fa fa-search"></i> </button>
-                        </form>
+                        </form:form>
                     </div>
                     <div class="filter-sidebar-left">
                         <div class="title-left">
@@ -150,7 +151,6 @@
                             <p>Showing all 4 results</p>
 
                         </div>
-                        <a class="btn hvr-hover" data-fancybox-close="" href="#">Add new</a>
                         <div class="col-12 col-sm-4 text-center text-sm-right">
                             <ul class="nav nav-tabs ml-auto">
                                 <li>
@@ -174,7 +174,7 @@
                                                     <div class="type-lb">
                                                         <p class="sale">${product.condition}</p>
                                                     </div>
-                                                    <img src="<c:url value="/resources/images/img-pro-01.jpg"/>" class="img-fluid" alt="Image">
+                                                    <img src="<c:url value="/resources/images/${product.id}.png"/>" class="img-fluid" alt="Image">
                                                     <div class="mask-icon">
                                                         <ul>
                                                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -185,7 +185,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="why-text">
-                                                    <h4><a href="<spring:url value="/productList/viewProduct/${product.id}"/>"> ${product.description}</a></h4>
+                                                    <h4><a href="<spring:url value="/productList/viewProduct/${product.id}"/>"> ${product.name}</a></h4>
                                                     <h5> $${product.price}</h5>
                                                 </div>
                                             </div>

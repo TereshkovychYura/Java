@@ -1,9 +1,8 @@
 package org.example.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.persistence.*;
 
 @Entity
 public class Product {
@@ -18,6 +17,10 @@ public class Product {
     private String Status;
     private String Manufacture;
     private boolean Wish;
+
+    @Transient
+    private MultipartFile Image;
+
 
     public void setId(String id) {
         Id = id;
@@ -53,6 +56,9 @@ public class Product {
 
     public void setWish(boolean wish) { Wish = wish; }
 
+    public void setImage(MultipartFile image) { Image = image; }
+
+
     public String getId() {
         return Id;
     }
@@ -86,4 +92,6 @@ public class Product {
     }
 
     public boolean getWish() { return Wish; }
+
+    public MultipartFile getImage() { return Image; }
 }

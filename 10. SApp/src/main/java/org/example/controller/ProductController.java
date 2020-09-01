@@ -5,10 +5,7 @@ import org.example.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
@@ -38,6 +35,13 @@ public class ProductController {
         Product product = productDao.getProductById(productId);
         model.addAttribute(product);
         return "viewProduct";
+    }
+
+    @RequestMapping( value = "/productList/Search/", method = RequestMethod.POST)
+    public String searchProduct(@RequestParam("Name") String Name, Model model) throws IOException {
+        List<Product> products = productDao.getProductsByName(Name);
+        model.addAttribute("products", products);
+        return "productList";
     }
 
     @RequestMapping(value ="/productList/addToWishList/{Id}")
